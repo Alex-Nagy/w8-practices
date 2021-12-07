@@ -1,26 +1,32 @@
-const array3 = [2, 4, 8, 14];
-const map3 = array3.map((x, i) => x * i);
+const numbers = [99, 25, 33, 46];
+let minimum = numbers[0];
 
-console.log(map3);
+const reducer = (prev, curr) => Math.min(prev, curr);
+minimum = numbers.reduce(reducer);
 
-let array4 = [
-  { key: 1, value: 10 },
-  { key: 2, value: 20 },
-  { key: 3, value: 30 },
-];
+console.log(minimum);
 
-let reformattedArray = array4.map((obj) => {
-  let rObj = {};
-  rObj[obj.key] = obj.value * 10;
-  return rObj;
-});
+const names = ["Alice", "Bob", "Alice", "Tiff", "Ubul"];
 
-console.log(reformattedArray);
+const countNames = {};
 
-let myObject = {'a':1, 'b':2, 'c':3};
+for (let i = 0; i < names.length; i++) {
+  if (countNames[names[i]]) {
+    countNames[names[i]]++;
+  } else {
+    countNames[names[i]] = 1;
+  }
+}
 
-Object.keys(myObject).map(function(key, index) {
-    myObject[key] *= 2;
-})
+console.log(countNames);
 
-console.log(myObject);
+let countedNames = names.reduce(function (allNames, name) {
+  if (name in allNames) {
+    allNames[name]++;
+  } else {
+    allNames[name] = 1;
+  }
+  return allNames
+}, {});
+
+console.log(countNames)
