@@ -1,6 +1,26 @@
-function loadEvent() {
-    console.log('the page has loaded');
-    
-}
+const array3 = [2, 4, 8, 14];
+const map3 = array3.map((x, i) => x * i);
 
-window.addEventListener("load", loadEvent);
+console.log(map3);
+
+let array4 = [
+  { key: 1, value: 10 },
+  { key: 2, value: 20 },
+  { key: 3, value: 30 },
+];
+
+let reformattedArray = array4.map((obj) => {
+  let rObj = {};
+  rObj[obj.key] = obj.value * 10;
+  return rObj;
+});
+
+console.log(reformattedArray);
+
+let myObject = {'a':1, 'b':2, 'c':3};
+
+Object.keys(myObject).map(function(key, index) {
+    myObject[key] *= 2;
+})
+
+console.log(myObject);
