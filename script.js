@@ -24,3 +24,4 @@ Object.keys(myObject).map(function(key, index) {
 })
 
 console.log(myObject);
+// now reduce
