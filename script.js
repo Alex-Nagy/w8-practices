@@ -1,32 +1,30 @@
-const numbers = [99, 25, 33, 46];
-let minimum = numbers[0];
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  address: {
+    street: "Peachfield",
+    city: "Budapest",
+    country: "Hungary",
+  },
+};
 
-const reducer = (prev, curr) => Math.min(prev, curr);
-minimum = numbers.reduce(reducer);
+const p1 = { ...person };
+console.log("p1: ", p1);
+let nums = [2, 3]
+let nums2 = [1,...nums,4]
 
-console.log(minimum);
+const p2 = Object.assign({}, person);
 
-const names = ["Alice", "Bob", "Alice", "Tiff", "Ubul"];
+p2.firstName = "Jane";
+p1.address.street = "Main Street";
 
-const countNames = {};
+console.log("person ", person);
+console.log("p2: ", p2);
 
-for (let i = 0; i < names.length; i++) {
-  if (countNames[names[i]]) {
-    countNames[names[i]]++;
-  } else {
-    countNames[names[i]] = 1;
-  }
-}
+const p3 = JSON.parse(JSON.stringify(person));
+console.log("p3: ", p3);
+p3.firstName = "Jane";
+p3.address.street = "Main Street";
 
-console.log(countNames);
-
-let countedNames = names.reduce(function (allNames, name) {
-  if (name in allNames) {
-    allNames[name]++;
-  } else {
-    allNames[name] = 1;
-  }
-  return allNames
-}, {});
-
-console.log(countNames)
+console.log("person: ", person)
+console.log("p3: ", p3)
